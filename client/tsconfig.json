@@ -1,18 +1,26 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "node",
-    "strict": true,
-    "sourceMap": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "esModuleInterop": true,
-    "lib": ["ESNext", "dom"],
+    "target": "ESNext",                // Target modern JavaScript
+    "module": "ESNext",               // Use ESNext module system
+    "moduleResolution": "node",       // Node-style module resolution
+    "strict": true,                   // Enable strict type checking
+    "sourceMap": true,                // Generate source maps
+    "resolveJsonModule": true,        // Allow importing JSON files
+    "isolatedModules": true,          // Required for single-file transpilation
+    "esModuleInterop": true,          // Enable ES module interop for CommonJS
+    "lib": ["ESNext", "dom"],         // Include modern JS and browser APIs
+    "types": ["vite/client", "@vue/runtime-core"], // Add Vite and Vue types
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"]                  // Resolve `@` to project root
     },
-    "outDir": "../dist/client"
+    "skipLibCheck": true,             // Skip type checks for library files
+    "outDir": "../dist/client"        // Output directory for compiled files
   },
-  "include": ["./**/*.ts", "./**/*.vue"]
+  "include": [
+    "./**/*.ts",                      // Include TypeScript files
+    "./**/*.d.ts",                    // Include TypeScript declaration files
+    "./**/*.vue",                     // Include Vue files
+    "env.d.ts"                        // Include environment-specific types
+  ],
+  "exclude": ["node_modules", "dist"] // Exclude dependencies and build output
 }
